@@ -1,47 +1,33 @@
 // Student.java
-// IST 240 - Lab 03
+// IST 240 - Lab 04
 // Zack Brady
 
-public class Student {
+public class Student extends Person {
 
-    private String firstName;
-    private String lastName;
-    private int age;
+    private int ID;
+    private String degreeMajor;
     private double GPA;
 
-    public Student(String firstName, String lastName, int age) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.age = age;
-        this.GPA = SemesterGPA();
+    public Student(String firstName, String lastName, String homeTown, int age, int ID, String degreeMajor, double GPA) {
+        super(firstName, lastName, homeTown, age);
+        this.ID = ID;
+        this.degreeMajor = degreeMajor;
+        this.GPA = GPA;
     }
 
-    public String getName() {
-        return firstName + " " + lastName;
+    public int getID() {
+        return ID;
     }
 
-    public String getfirstName() {
-        return firstName;
-    }
-
-    public String getlastName() {
-        return lastName;
-    }
-
-    public int getAge() {
-        return age;
+    public String getdegreeMajor() {
+        return degreeMajor;
     }
 
     public double getGPA() {
         return GPA;
     }
 
-    public String getStudentInfo() {
-        return getName() + "  " + getAge() + " " + getGPA();
-    }
-    
-    public double SemesterGPA() {
-        double RandomGPA = (Math.random() * 4.00) + 0.00;
-        return RandomGPA;
+    public String getInfo() {
+        return super.getInfo() + " " + getID() + "  " + getdegreeMajor() + " " + String.format("%.2f", getGPA());
     }
 }
